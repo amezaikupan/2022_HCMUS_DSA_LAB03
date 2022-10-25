@@ -15,19 +15,22 @@ int* readData(char* input, int& n)
     ifstream file (input);
     
     //Get data set's size
-    string line = "";
-    getline(file, line);
+    //string line = "";
+    //getline(file, line);
 
     //Make data set
-    n = stoi(line);
+    //n = stoi(line);
+    string line;
     int* a = new int[n];
 
     //Read data set data
     int i = 0;
+    file >> n;
     while(file >> line){
+        
         a[i] = stoi(line);
         i++;
-    }
+    } 
     
     return a;
 }

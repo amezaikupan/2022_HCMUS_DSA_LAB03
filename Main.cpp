@@ -23,7 +23,7 @@ int main(int argc, char** argv)
     // }
 
     // of.close();
-    Command04(argv[2],argv[3],argv[4]);
-    //Command05(argv[2], argv[3], argv[4], argv[5]);
+    //Command04(argv[2],argv[3],argv[4]);
+    Command05(argv[2], argv[3], argv[4], argv[5]);
     return 0;
 }
