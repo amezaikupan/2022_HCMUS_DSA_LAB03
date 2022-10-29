@@ -9,9 +9,10 @@
 using namespace std;
 
 //Proccess comparisons count -comp
-void command01Comp(char* algorithm, char* input){
-    //Read data
+void command01Comp(char* algorithm, char* input)
+{
     int n = 0;
+    //Read data
     int* a = readData(input, n);
 
     //Comparisons
@@ -83,6 +84,11 @@ void command01Comp(char* algorithm, char* input){
 
     writeData("output.txt", a, n);
 
+    cout << "ALGORITHM MODE" << endl;
+    cout << "Algorithm: " << algorithm << endl;
+    cout << "Input file: " << input << endl;
+    cout << "Input size: " << n << endl;
+    cout << "--------------------------------" << endl;
     cout << "Running time (if required): " << endl;
     cout << "Comparisons (if required): " << comp << endl;
 
@@ -90,10 +96,10 @@ void command01Comp(char* algorithm, char* input){
 }
 
 //Process running time -time
-void command01Time(char* algorithm, char* input){
-    
-    //Read data
+void command01Time(char* algorithm, char* input)
+{
     int n = 0;
+    //Read data
     int* a = readData(input, n);
 
     double time;
@@ -158,6 +164,11 @@ void command01Time(char* algorithm, char* input){
 
     writeData("output.txt", a, n);
 
+    cout << "ALGORITHM MODE" << endl;
+    cout << "Algorithm: " << algorithm << endl;
+    cout << "Input file: " << input << endl;
+    cout << "Input size: " << n << endl;
+    cout << "--------------------------------" << endl;
     cout << "Running time (if required): " << time << endl;
     cout << "Comparisons (if required): " << endl;
 
@@ -167,8 +178,8 @@ void command01Time(char* algorithm, char* input){
 //Process comparisons count and running time -both
 void command01Both(char* algorithm, char* input){
 
-     //Read data
     int n = 0;
+     //Read data
     int* a = readData(input, n);
     int* b = readData(input, n);
 
@@ -247,7 +258,11 @@ void command01Both(char* algorithm, char* input){
         break;
     }
     writeData("output.txt", a, n);
-
+    cout << "ALGORITHM MODE" << endl;
+    cout << "Algorithm: " << algorithm << endl;
+    cout << "Input file: " << input << endl;
+    cout << "Input size: " << n << endl;
+    cout << "--------------------------------" << endl;
     cout << "Running time (if required): " << time << endl;
     cout << "Comparisons (if required): " << comp << endl;
 
@@ -257,7 +272,7 @@ void command01Both(char* algorithm, char* input){
 }
 
 
-void command01(char* algorithm, char* input, char* para){
+void command01(char* algorithm, char* input, char* para, int& n){
     if(strcmp(para, "-comp") == 0){
         command01Comp(algorithm, input);        
     }

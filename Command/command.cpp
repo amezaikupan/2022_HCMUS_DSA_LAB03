@@ -13,12 +13,10 @@ void ChooseCommand(int argc, char** argv){
     if(argc == 5){
         if(strcmp(argv[1], "-a") == 0){
             if(atoi(argv[3]) == 0){
-                cout << "ALGORITHM MODE" << endl;
-                cout << "Algorithm: " << argv[2] << endl;
-                cout << "Input file: " << argv[3] << endl;
-                cout << "Input size: " << endl;
-                cout << "--------------------------------" << endl;
-                command01(argv[2], argv[3], argv[4]);
+                int n = 0;
+                
+
+                command01(argv[2], argv[3], argv[4], n);
             }else{
                 cout << "ALGORITHM MODE" << endl;
                 cout << "Algorithm: " << argv[2] << endl;
