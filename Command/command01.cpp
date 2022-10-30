@@ -8,12 +8,27 @@
 
 using namespace std;
 
+void printCommand01(char* algorithm, char* input, int n, long long comp = -1, int time = -1){
+    cout << "ALGORITHM MODE" << endl;
+    cout << "Algorithm: " << algorithm << endl;
+    cout << "Input file: " << input << endl;
+    cout << "Input size: " << n << endl;
+    cout << "--------------------------------" << endl;
+    
+    if(time != -1)  cout << "Running time: " << time << endl;
+    if(comp != -1)  cout << "Comparisons: " << comp << endl;
+}
+
 //Proccess comparisons count -comp
-void command01Comp(char* algorithm, char* input)
-{
-    int n = 0;
+void command01Comp(char* algorithm, char* input){
     //Read data
+    int n = 0;
     int* a = readData(input, n);
+
+    if(a == NULL){
+        cout << "INVALID FILE NAME" << endl;
+        return;
+    }
 
     //Comparisons
     long long comp = 0;
@@ -76,31 +91,32 @@ void command01Comp(char* algorithm, char* input)
         break;
     case 11:
         //Flash Sort
+        FlashSortComp(a, n, comp);
         break;
     default:
         //Error
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
         break;
     }
 
     writeData("output.txt", a, n);
-
-    cout << "ALGORITHM MODE" << endl;
-    cout << "Algorithm: " << algorithm << endl;
-    cout << "Input file: " << input << endl;
-    cout << "Input size: " << n << endl;
-    cout << "--------------------------------" << endl;
-    cout << "Running time (if required): " << endl;
-    cout << "Comparisons (if required): " << comp << endl;
+    printCommand01(algorithm, input, n, comp);
 
     delete[] a;
 }
 
 //Process running time -time
-void command01Time(char* algorithm, char* input)
-{
-    int n = 0;
+void command01Time(char* algorithm, char* input){
+    
     //Read data
+    int n = 0;
     int* a = readData(input, n);
+
+    if(a == NULL){
+        cout << "INVALID FILE NAME" << endl;
+        return;
+    }
 
     double time;
 
@@ -156,21 +172,17 @@ void command01Time(char* algorithm, char* input)
         break;
     case 11:
         //Flash Sort
+        FlashSortTime(a, n, time);
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
     }
 
     writeData("output.txt", a, n);
 
-    cout << "ALGORITHM MODE" << endl;
-    cout << "Algorithm: " << algorithm << endl;
-    cout << "Input file: " << input << endl;
-    cout << "Input size: " << n << endl;
-    cout << "--------------------------------" << endl;
-    cout << "Running time (if required): " << time << endl;
-    cout << "Comparisons (if required): " << endl;
+    printCommand01(algorithm, input, n, -1, time);
 
     delete[] a;
 }
@@ -178,9 +190,15 @@ void command01Time(char* algorithm, char* input)
 //Process comparisons count and running time -both
 void command01Both(char* algorithm, char* input){
 
-    int n = 0;
      //Read data
+    int n = 0;
     int* a = readData(input, n);
+    
+    if(a == NULL){
+        cout << "INVALID FILE NAME" << endl;
+        return;
+    }
+    
     int* b = readData(input, n);
 
     double time = 0;
@@ -252,19 +270,17 @@ void command01Both(char* algorithm, char* input){
         break;
     case 11:
         //Flash Sort
+        FlashSortTime(a, n, time);
+        FlashSortComp(b, n, comp);
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
     }
     writeData("output.txt", a, n);
-    cout << "ALGORITHM MODE" << endl;
-    cout << "Algorithm: " << algorithm << endl;
-    cout << "Input file: " << input << endl;
-    cout << "Input size: " << n << endl;
-    cout << "--------------------------------" << endl;
-    cout << "Running time (if required): " << time << endl;
-    cout << "Comparisons (if required): " << comp << endl;
+
+    printCommand01(algorithm, input, n, comp, time);
 
     delete[] a;
     delete[] b;
@@ -272,7 +288,7 @@ void command01Both(char* algorithm, char* input){
 }
 
 
-void command01(char* algorithm, char* input, char* para, int& n){
+void command01(char* algorithm, char* input, char* para){
     if(strcmp(para, "-comp") == 0){
         command01Comp(algorithm, input);        
     }
@@ -283,6 +299,6 @@ void command01(char* algorithm, char* input, char* para, int& n){
         command01Both(algorithm, input);
     }
     else{
-        cout << "INVALID INPUT" << endl;
+        cout << "INVALID PARAMETER" << endl;
     }
 }

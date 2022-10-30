@@ -8,4 +8,5 @@
 #include "RadixSort.h"
 #include "ShakerSort.h"
 #include "CountingSort.h"
+#include "FlashSort.h"
 

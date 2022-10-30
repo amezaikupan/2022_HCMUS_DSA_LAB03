@@ -9,6 +9,13 @@
 
 using namespace std;
 
+void printCommand03(char* algorithm, int n){
+    cout << "ALGORITHM MODE" << endl;
+    cout << "Algorithm: " << algorithm << endl;
+    cout << "Input size: " << n << endl;
+    cout << "--------------------------------" << endl;
+}
+
 void command03Comp(char* algorithm, int n){
     int *a = new int[n];
 
@@ -26,11 +33,9 @@ void command03Comp(char* algorithm, int n){
         //Selection Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            SelectionSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            SelectionSortComp(a, n, comp[i]);          
         }
 
         break;
@@ -38,33 +43,27 @@ void command03Comp(char* algorithm, int n){
         //Insertion Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            InsertionSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            InsertionSortComp(a, n, comp[i]);
         }
         break;
     case 3:
         //Bubble Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            BubbleSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            BubbleSortComp(a, n, comp[i]);            
         }
         break;
     case 4:
         //Shaker Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            ShakerSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            ShakerSortComp(a, n, comp[i]);            
         }
         
         break;
@@ -72,11 +71,9 @@ void command03Comp(char* algorithm, int n){
         //Shell Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            ShellSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            ShellSortComp(a, n, comp[i]);            
         }
 
         break;
@@ -84,11 +81,9 @@ void command03Comp(char* algorithm, int n){
         //Heap Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            HeapSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            HeapSortComp(a, n, comp[i]);
         }
 
         break;
@@ -96,11 +91,11 @@ void command03Comp(char* algorithm, int n){
         //Merge Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            MergeSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            MergeSortComp(a, n, comp[i]);
+
+            
         }
 
         break;
@@ -108,11 +103,10 @@ void command03Comp(char* algorithm, int n){
         //Quick Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            QuickSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            QuickSortComp(a, n, comp[i]);
+
         }
 
         break;
@@ -120,36 +114,43 @@ void command03Comp(char* algorithm, int n){
         //Counting Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            CountingSortCom(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            CountingSortCom(a, n, comp[i]);
         }
         break;
     case 10:
         //Radix Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            RadixSortComp(a, n, comp[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            RadixSortComp(a, n, comp[i]);
         }
         
         break;
     case 11:
         //Flash Sort
+        for(int i = 0; i < 4; i++){
+            GenerateData(a, n, i);
+            file = "input_" + to_string(i) + ".txt";
+            writeData(file, a, n);
+            FlashSortComp(a, n, comp[i]);
+        }
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
+        
     }
     
+    printCommand03(algorithm, n);
     for(int i = 0; i < 4; i++){        
-        cout << "Running time (if required): " << endl;
-        cout << "Comparisons (if required): "  << comp[i] << endl;
+        cout << endl;
+        cout << "Input Order: " << getOrderName(i) << endl;
+        cout << "-------------------------------------" << endl;
+        cout << "Comparisons (): "  << comp[i] << endl;
     }
 
     delete[] a;
@@ -172,11 +173,9 @@ void command03Time(char* algorithm, int n){
         //Selection Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            SelectionSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            SelectionSortTime(a, n, time[i]);
         }
 
         break;
@@ -184,33 +183,28 @@ void command03Time(char* algorithm, int n){
         //Insertion Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            InsertionSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            InsertionSortTime(a, n, time[i]);
         }
         break;
     case 3:
         //Bubble Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            BubbleSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            BubbleSortTime(a, n, time[i]);
+
         }
         break;
     case 4:
         //Shaker Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            ShakerSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            ShakerSortTime(a, n, time[i]);
         }
         
         break;
@@ -218,11 +212,10 @@ void command03Time(char* algorithm, int n){
         //Shell Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            ShellSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            ShellSortTime(a, n, time[i]);
+
         }
 
         break;
@@ -230,11 +223,9 @@ void command03Time(char* algorithm, int n){
         //Heap Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            HeapSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
-            writeData(file, a, n);
+            writeData(file, a, n);  
+            HeapSortTime(a, n, time[i]);
         }
 
         break;
@@ -242,11 +233,9 @@ void command03Time(char* algorithm, int n){
         //Merge Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            MergeSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            MergeSortTime(a, n, time[i]);
         }
 
         break;
@@ -254,11 +243,9 @@ void command03Time(char* algorithm, int n){
         //Quick Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            QuickSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            QuickSortTime(a, n, time[i]);
         }
 
         break;
@@ -266,36 +253,43 @@ void command03Time(char* algorithm, int n){
         //Counting Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            CountingSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            CountingSortTime(a, n, time[i]);
         }
         break;
     case 10:
         //Radix Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            
-            RadixSortTime(a, n, time[i]);
-
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+            RadixSortTime(a, n, time[i]);
         }
         
         break;
     case 11:
         //Flash Sort
+        for(int i = 0; i < 4; i++){
+            GenerateData(a, n, i);
+            file = "input_" + to_string(i) + ".txt";
+            writeData(file, a, n);
+            FlashSortTime(a, n, time[i]);
+        }
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
+        
     }
-    
+
+    printCommand03(algorithm, n);
     for(int i = 0; i < 4; i++){        
-        cout << "Running time (if required): " << time[i] << endl;
-        cout << "Comparisons (if required): "  << endl;
+        cout << endl;
+        cout << "Input Order: " << getOrderName(i) << endl;
+        cout << "-------------------------------------" << endl;
+        cout << "Running time (): " << time[i] << endl;
     }
 
     delete[] a;
@@ -320,12 +314,13 @@ void command03Both(char* algorithm, int n){
         //Selection Sort
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
-            b = copyData(a, b, n);
-            SelectionSortComp(a, n, comp[i]);
-            SelectionSortTime(b, n, time[i]);
-
+            b = copyData(a, b, n);\
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            SelectionSortComp(a, n, comp[i]);
+            SelectionSortTime(b, n, time[i]);
         }
 
         break;
@@ -334,11 +329,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            InsertionSortComp(a, n, comp[i]);
-            InsertionSortTime(b, n, time[i]);
-
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            InsertionSortComp(a, n, comp[i]);
+            InsertionSortTime(b, n, time[i]);
         }
         break;
     case 3:
@@ -346,11 +342,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            BubbleSortComp(a, n, comp[i]);
-            BubbleSortTime(b, n, time[i]);
-
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            BubbleSortComp(a, n, comp[i]);
+            BubbleSortTime(b, n, time[i]);
         }
         break;
     case 4:
@@ -358,11 +355,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            ShakerSortComp(a, n, comp[i]);
-            ShakerSortTime(b, n, time[i]);
 
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            ShakerSortComp(a, n, comp[i]);
+            ShakerSortTime(b, n, time[i]);
         }
         break;
     case 5:
@@ -370,11 +368,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            ShellSortComp(a, n, comp[i]);
-            ShellSortTime(b, n, time[i]);
-
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            ShellSortComp(a, n, comp[i]);
+            ShellSortTime(b, n, time[i]);
         }
 
         break;
@@ -383,11 +382,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            HeapSortComp(a, n, comp[i]);
-            HeapSortTime(b, n, time[i]);
 
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            HeapSortComp(a, n, comp[i]);
+            HeapSortTime(b, n, time[i]);
         }
 
         break;
@@ -396,11 +396,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            MergeSortComp(a, n, comp[i]);
-            MergeSortTime(b, n, time[i]);
-
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            MergeSortComp(a, n, comp[i]);
+            MergeSortTime(b, n, time[i]);
         }
 
         break;
@@ -409,11 +410,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            QuickSortComp(a, n, comp[i]);
-            QuickSortTime(b, n, time[i]);
 
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            QuickSortComp(a, n, comp[i]);
+            QuickSortTime(b, n, time[i]);
         }
 
         break;
@@ -422,11 +424,12 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            CountingSortCom(a, n, comp[i]);
-            CountingSortTime(b, n, time[i]);
-
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            CountingSortCom(a, n, comp[i]);
+            CountingSortTime(b, n, time[i]);
         }
         break;
         break;
@@ -435,25 +438,41 @@ void command03Both(char* algorithm, int n){
         for(int i = 0; i < 4; i++){
             GenerateData(a, n, i);
             b = copyData(a, b, n);
-            RadixSortComp(a, n, comp[i]);
-            RadixSortTime(b, n, time[i]);
-
+            
             file = "input_" + to_string(i) + ".txt";
             writeData(file, a, n);
+
+            RadixSortComp(a, n, comp[i]);
+            RadixSortTime(b, n, time[i]);
         }
         
         break;
     case 11:
         //Flash Sort
+        for(int i = 0; i < 4; i++){
+            GenerateData(a, n, i);
+            b = copyData(a, b, n);
+            
+            file = "input_" + to_string(i) + ".txt";
+            writeData(file, a, n);
+
+            FlashSortComp(a, n, comp[i]);
+            FlashSortTime(b, n, time[i]);
+        }
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
     }
     
-    for(int i = 0; i < 4; i++){        
-        cout << "Running time (if required): " << time[i] << endl;
-        cout << "Comparisons (if required): "  << comp[i] << endl;
+    printCommand03(algorithm, n);
+    for(int i = 0; i < 4; i++){     
+        cout << endl;
+        cout << "Input Order: " << getOrderName(i) << endl;
+        cout << "-------------------------------------" << endl;
+        cout << "Running time (): " << time[i] << endl;
+        cout << "Comparisons (): "  << comp[i] << endl;
     }
     
     delete[] a;
@@ -471,5 +490,8 @@ void command03(char* algorithm, char* size, char* para){
     }
     else if(strcmp(para, "-both") == 0){
         command03Both(algorithm, n);
+    }
+    else{
+        cout << "INVALID PARAMETER" << endl;
     }
 }

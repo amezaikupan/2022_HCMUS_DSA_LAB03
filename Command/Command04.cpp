@@ -90,10 +90,13 @@ void ChooseAlgorithm(char* algorithm, int* a, int n, double &time, long long &co
         break;
     case 11:
         //Flash Sort
+        FlashSortTime(a, n, time);
+        FlashSortComp(c, n, comp);
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
     }
 }
 
@@ -104,6 +107,13 @@ void Command04(char* Algorithm01, char* Algorithm02, char* Input)
     int *a;
     int *b;
     a = readData(Input, n);
+
+    //If file doesn't exist then print error and stop commands
+    if(a == NULL){
+        cout << "INVALID FILE NAME" << endl;
+        return;
+    }
+
     //b = a;
     b = copyData(a, b, n);
     

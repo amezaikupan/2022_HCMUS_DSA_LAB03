@@ -9,6 +9,9 @@ int* readData(char* input, int &n){
     //Read input file
     ifstream file (input);
     
+    //check if filename is valid
+    if(file.fail()) return NULL;
+
     //Get data set's size
     string line = "";
     file >> line;

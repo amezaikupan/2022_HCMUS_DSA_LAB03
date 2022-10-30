@@ -22,6 +22,12 @@ void Command05 (char* Algorithm01, char* Algorithm02, char* Input, char* Order)
     string file = "intput.txt";
     
     int o = getOrder((Order));
+    
+    //Check if enter invalid order
+    if(o == -1){
+        cout << "INVALID ORDER" << endl;
+        return;
+    }
 
     GenerateData(a, n, o);
     b = copyData(a, b, n);

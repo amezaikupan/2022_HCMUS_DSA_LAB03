@@ -9,10 +9,25 @@
 
 using namespace std;
 
+void printCommand02(char* algorithm, int n, long long comp = -1, int time = -1){
+    cout << "ALGORITHM MODE" << endl;
+    cout << "Algorithm: " << algorithm << endl;
+    cout << "Input size: " << n << endl;
+    cout << "--------------------------------" << endl;
+    if(time != -1)  cout << "Running time: " << time << endl;
+    if(comp != -1)  cout << "Comparisons: " << comp << endl;
+}
+
 void command02Comp(char* algorithm, int n, char* order){
     //Generate data
     int* a = new int[n];
     int o = getOrder((order));
+
+    //Check if enter invalid order
+    if(o == -1){
+        cout << "INVALID ORDER" << endl;
+        return;
+    }
 
     GenerateData(a, n, o);
     writeData("input.txt", a, n);
@@ -58,7 +73,6 @@ void command02Comp(char* algorithm, int n, char* order){
     case 7:
         //Merge Sort
         MergeSortComp(a, n, comp);
-
         break;
     case 8:
         //Quick Sort
@@ -72,20 +86,24 @@ void command02Comp(char* algorithm, int n, char* order){
     case 10:
         //Radix Sort
         RadixSortComp(a, n, comp);
-        
         break;
     case 11:
         //Flash Sort
+        FlashSortComp(a, n, comp);
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
+        
     }
 
     writeData("output.txt", a, n);
 
-    cout << "Running time (if required): " << endl;
-    cout << "Comparisons (if required): " << comp << endl;
+    printCommand02(algorithm, n, comp);
+
+    cout << "Running time (): " << endl;
+    cout << "Comparisons (): " << comp << endl;
 
     delete[] a;
 }
@@ -96,6 +114,12 @@ void command02Time(char* algorithm, int n, char* order){
     //Generate data
     int* a = new int[n];
     int o = getOrder((order));
+    
+    //Check if enter invalid order
+    if(o == -1){
+        cout << "INVALID ORDER" << endl;
+        return;
+    }
 
     GenerateData(a, n, o);
     writeData("input.txt", a, n);
@@ -155,20 +179,24 @@ void command02Time(char* algorithm, int n, char* order){
     case 10:
         //Radix Sort
         RadixSortTime(a, n, time);
-        
         break;
     case 11:
         //Flash Sort
+        FlashSortTime(a, n, time);
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
+        
     }
    
     writeData("output.txt", a, n);
 
-    cout << "Running time (if required): " << time << endl;
-    cout << "Comparisons (if required): "  << endl;
+    printCommand02(algorithm, n, -1, time);
+
+    cout << "Running time (): " << time << endl;
+    cout << "Comparisons (): "  << endl;
 
     delete[] a;
 }
@@ -181,6 +209,12 @@ void command02Both(char* algorithm, int n, char* order){
     int* b = new int[n];
 
     int o = getOrder((order));
+
+    //Check if enter invalid order
+    if(o == -1){
+        cout << "INVALID ORDER" << endl;
+        return;
+    }
 
     GenerateData(a, n, o);
     b = copyData(a, b, n);
@@ -259,16 +293,19 @@ void command02Both(char* algorithm, int n, char* order){
         break;
     case 11:
         //Flash Sort
+        FlashSortComp(a, n, comp);
+        FlashSortTime(b, n, time);
         break;
     default:
         //Error
-        break;
+        cout << "INVALID ALGORITHM NAME" << endl;
+        return;
+        
     }
     
     writeData("output.txt", a, n);
 
-    cout << "Running time (if required): " << time << endl;
-    cout << "Comparisons (if required): "  << comp << endl;
+    printCommand02(algorithm, n, comp, time);
 
     delete[] a;
     delete[] b;
@@ -289,6 +326,6 @@ void command02(char* algorithm, char* size, char* order, char* para){
         command02Both(algorithm, n, order);
     }
     else{
-        cout << "INVALID INPUT" << endl;
+        cout << "INVALID PARAMETER" << endl;
     }
 }
