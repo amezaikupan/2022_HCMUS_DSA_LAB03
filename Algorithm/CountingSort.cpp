@@ -3,63 +3,52 @@
 
 using namespace std;
 
-void CountingSort(int* &a, int n)
+void CountingSort(int* a, int n)
 {
-	int max = 0;
+
+	int max = a[0];
+	int min = a[0];
 	for (int i = 0; i < n; i++)
 	{
 		if (a[i] > max)
 		{
 			max = a[i];
 		}
+		else if (a[i] < min)
+		{
+			min = a[i];
+		}
 
 	} 
-	int* count= new int[max + 1]{0};
+	int size = max - min + 1;
+	int* count= new int[size]{0};
 	int* result = new int[n];
 	
 	for (int i = 0; i < n; i++)
 	{//
-		count[a[i]]++;
+		count[a[i] - min]++;
 	}
 	//
-	for (int i = 1; i <= max; i++)
+	for (int i = 1; i < size; i++)
 	{
 		count[i] += count[i - 1];
 	}
-
 	//Rotate the count array by 1
-	for (int i = max ; i > 0; i--)
+	for (int i = size - 1 ; i > 0; i--)
 	{
 		count[i] = count[i - 1];
 	}
-
+	//count[0] = 0;
 	count[0] = 0;
-	//2 2 9 5 3
-	//Max = 9
-	//count = 0 0 0 0 0 0 0 0 0 0 
-	//        0 1 2 3 4 5 6 7 8 9
-	// 
-	//count = 0 0 2 1 0 1 0 0 0 1 
-	//        0 1 2 3 4 5 6 7 8 9
-	// 
-	//count = 0 0 2 2 3 3 4 4 4 4
-	//        0 1 2 3 4 5 6 7 8 9
-	// 
-	//count = 0 0 0 2 3 3 4 4 4 4 
-	//        0 1 2 3 4 5 6 7 8 9
-	//output= 2 2 3 5 9
-	
 	for (int i = 0; i < n; i++)
 	{
-		result[count[a[i]]] = a[i];
-		count[a[i]]++;
+		result[count[a[i] - min]] = a[i];
+		count[a[i] - min]++;
 	}
-
 	for (int i = 0; i < n; i++)
 	{
 		a[i] = result[i];
 	}
-
 	delete[] count;
 	delete[] result;
 }
