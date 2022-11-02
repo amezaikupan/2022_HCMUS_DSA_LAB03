@@ -15,21 +15,24 @@ void Running()
         {
             int* arr = new int[a[j]];
             GenerateData(arr,a[j],i);
-            for(int k = 0; k< 11; k++)
-            {
-                long long comp = 0; double time = 0;
-                string s= getAlgorithmName(k + 1);
-                char* algorithm = new char[s.size() + 1];
-                strcpy(algorithm, s.c_str());
-                ChooseAlgorithm ( algorithm, arr, a[j], time, comp);
-                cout << "Data Order: " << getOrderName(i) <<endl;
-                cout << "Data Size: " << a[j] << endl;
-                cout << "Algorithm: " << s << endl;
-                cout << "Comparision: " << comp << endl;
-                cout << "Running time : " << time << endl;
-                cout << "__________________________________" << endl;
-                delete[] algorithm;
-            }
+            string file;
+            file = getOrderName(i) + "_" + to_string(a[j]) + ".txt";
+            writeData(file,arr,a[j]);
+            // for(int k = 0; k< 11; k++)
+            // {
+            //     long long comp = 0; double time = 0;
+            //     string s= getAlgorithmName(k + 1);
+            //     char* algorithm = new char[s.size() + 1];
+            //     strcpy(algorithm, s.c_str());
+            //     ChooseAlgorithm ( algorithm, arr, a[j], time, comp);
+            //     cout << "Data Order: " << getOrderName(i) <<endl;
+            //     cout << "Data Size: " << a[j] << endl;
+            //     cout << "Algorithm: " << s << endl;
+            //     cout << "Comparision: " << comp << endl;
+            //     cout << "Running time : " << time << endl;
+            //     cout << "__________________________________" << endl;
+            //     delete[] algorithm;
+            // }
             delete [] arr;
         }
     }
