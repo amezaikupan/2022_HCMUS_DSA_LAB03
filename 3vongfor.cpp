@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string.h>
 #include "Command/command.h"
-#include "../Algorithm/SortingAlgorithm.h"
-#include "../Helper/FileManipulation.h"
-#include "../Helper/dataGenerator.h"
-#include "../Helper/Ultility.h"
+#include "Algorithm/SortingAlgorithm.h"
+#include "Helper/FileManipulation.h"
+#include "Helper/dataGenerator.h"
+#include "Helper/Ultility.h"
 #include "Command/command04.h"
 void Running()
 {
@@ -13,10 +13,10 @@ void Running()
     {
         for(int j = 0; j < 6; j++)
         {
+            int* arr = new int[a[j]];
+            GenerateData(arr,a[j],i);
             for(int k = 0; k< 11; k++)
             {
-                int* arr = new int[a[j]];
-                GenerateData(arr,a[j],i);
                 long long comp = 0; double time = 0;
                 string s= getAlgorithmName(k + 1);
                 char* algorithm = new char[s.size() + 1];
@@ -28,7 +28,9 @@ void Running()
                 cout << "Comparision: " << comp << endl;
                 cout << "Running time : " << time << endl;
                 cout << "__________________________________" << endl;
+                delete[] algorithm;
             }
+            delete [] arr;
         }
     }
 }
