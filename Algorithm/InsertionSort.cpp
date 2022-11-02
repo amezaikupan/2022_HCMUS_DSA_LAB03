@@ -6,7 +6,7 @@ using namespace std;
 void InsertionSortComp(int* &a, int n, long long&  comp)
 {
 	 comp = 0;
-	int i = 0, j, key;
+	int i = 1, j, key;
 	while (++ comp && i < n)
 	{
 		key = a[i];
@@ -23,7 +23,7 @@ void InsertionSortComp(int* &a, int n, long long&  comp)
 
 void InsertionSort(int* &a, int n)
 {
-	int i = 0, j, key;
+	int i = 1, j, key;
 	while (i < n)
 	{
 		key = a[i];
