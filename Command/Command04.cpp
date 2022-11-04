@@ -98,6 +98,8 @@ void ChooseAlgorithm(char* algorithm, int* a, int n, double &time, long long &co
         cout << "INVALID ALGORITHM NAME" << endl;
         return;
     }
+
+    delete[] c;
 }
 
 void Command04(char* Algorithm01, char* Algorithm02, char* Input)
@@ -134,4 +136,3 @@ void Command04(char* Algorithm01, char* Algorithm02, char* Input)
     delete[] a;
     delete[] b;
 }
-

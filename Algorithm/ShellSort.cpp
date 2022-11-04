@@ -5,7 +5,8 @@ using namespace std;
 void ShellSortTime(int* &a, int n, double &time){
     auto start = chrono::high_resolution_clock::now();
 
-        int i, j, gap = n / 2;
+    int i, j, gap = n / 2;
+    
     i = gap;
 
     while(gap > 0){

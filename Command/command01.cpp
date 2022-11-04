@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void printCommand01(char* algorithm, char* input, int n, long long comp = -1, int time = -1){
+void printCommand01(char* algorithm, char* input, int n, long long comp , double time ){
     cout << "ALGORITHM MODE" << endl;
     cout << "Algorithm: " << algorithm << endl;
     cout << "Input file: " << input << endl;
@@ -101,7 +101,7 @@ void command01Comp(char* algorithm, char* input){
     }
 
     writeData("output.txt", a, n);
-    printCommand01(algorithm, input, n, comp);
+    printCommand01(algorithm, input, n, comp,-1);
 
     delete[] a;
 }
@@ -118,7 +118,7 @@ void command01Time(char* algorithm, char* input){
         return;
     }
 
-    double time;
+    double time = 0;
 
     //Get algorithm 
     int al = getAlgorithm(algorithm);
@@ -181,7 +181,7 @@ void command01Time(char* algorithm, char* input){
     }
 
     writeData("output.txt", a, n);
-
+    
     printCommand01(algorithm, input, n, -1, time);
 
     delete[] a;

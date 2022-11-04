@@ -70,12 +70,12 @@ void FlashSortTime(int a[], int n, double &time){
         }
 
         //We've found the first unclassified elelement in bucket Lk
-        //Save that element in t
+        //Save that element in flash
         flash = a[j];
 
         //Start loop
         while(j != L[k]){
-            //Find the bucket that t belongs to
+            //Find the bucket that flash belongs to
             k = int(c1 * (flash - min));
 
             //Decrement Lk to show that Aj is correctly classify
@@ -105,7 +105,8 @@ void FlashSortTime(int a[], int n, double &time){
         i++;
     }
 
-    
+    delete[] L;
+
 	auto end = chrono::high_resolution_clock::now();
 	time = double(chrono::duration_cast <chrono::nanoseconds> (end - start).count()) / 1e6;
 }
@@ -207,4 +208,7 @@ void FlashSortComp(int a[], int n, long long &comp){
 
         i++;
     }
+
+    delete[] L;
+    
 }

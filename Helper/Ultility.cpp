@@ -51,6 +51,7 @@ string getOrderName(int order){
     unordered_map<int, string> oList {{0, "Randomize"}, {1, "Sorted"}, {2, "Reversed"}, {3, "Nearly Sorted"}};
     return oList[order];
 }
+
 string getAlgorithmName(int algorithm)
 {
     unordered_map <int, string> aList {{1, "selection-sort"}, {2, "insertion-sort"}, 

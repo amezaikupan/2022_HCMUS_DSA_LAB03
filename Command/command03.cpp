@@ -150,7 +150,7 @@ void command03Comp(char* algorithm, int n){
         cout << endl;
         cout << "Input Order: " << getOrderName(i) << endl;
         cout << "-------------------------------------" << endl;
-        cout << "Comparisons (): "  << comp[i] << endl;
+        cout << "Comparisons: "  << comp[i] << endl;
     }
 
     delete[] a;
@@ -289,7 +289,7 @@ void command03Time(char* algorithm, int n){
         cout << endl;
         cout << "Input Order: " << getOrderName(i) << endl;
         cout << "-------------------------------------" << endl;
-        cout << "Running time (): " << time[i] << endl;
+        cout << "Running time: " << time[i] << endl;
     }
 
     delete[] a;
@@ -467,12 +467,13 @@ void command03Both(char* algorithm, int n){
     }
     
     printCommand03(algorithm, n);
+    
     for(int i = 0; i < 4; i++){     
         cout << endl;
         cout << "Input Order: " << getOrderName(i) << endl;
         cout << "-------------------------------------" << endl;
-        cout << "Running time (): " << time[i] << endl;
-        cout << "Comparisons (): "  << comp[i] << endl;
+        cout << "Running time: " << time[i] << endl;
+        cout << "Comparisons: "  << comp[i] << endl;
     }
     
     delete[] a;

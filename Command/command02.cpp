@@ -102,8 +102,8 @@ void command02Comp(char* algorithm, int n, char* order){
 
     printCommand02(algorithm, n, comp);
 
-    cout << "Running time (): " << endl;
-    cout << "Comparisons (): " << comp << endl;
+    cout << "Running time: " << endl;
+    cout << "Comparisons: " << comp << endl;
 
     delete[] a;
 }
@@ -195,8 +195,8 @@ void command02Time(char* algorithm, int n, char* order){
 
     printCommand02(algorithm, n, -1, time);
 
-    cout << "Running time (): " << time << endl;
-    cout << "Comparisons (): "  << endl;
+    cout << "Running time: " << time << endl;
+    cout << "Comparisons: "  << endl;
 
     delete[] a;
 }

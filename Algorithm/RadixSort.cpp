@@ -61,6 +61,8 @@ void RadixSortTime(int* &a, int n, double& time)
 		d--;
 	}
 
+	delete[] temp;
+
 	auto stop = chrono::high_resolution_clock::now();    // Stop measure time
 	time = (chrono::duration_cast<chrono::microseconds>(stop - start).count()) / 1000.0;
 }
@@ -101,4 +103,6 @@ void RadixSortComp(int* &a, int n, long long& comp)
 		exp *= 10;
 		d--;
 	}
+
+	delete[] temp;
 }

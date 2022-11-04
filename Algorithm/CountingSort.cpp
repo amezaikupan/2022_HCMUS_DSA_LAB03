@@ -106,5 +106,5 @@ void CountingSortTime(int * &a, int n, double& time)
     auto start = chrono::high_resolution_clock::now();
     CountingSort(a,n);
     auto end = std::chrono::high_resolution_clock::now();
-    time = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+    time = double(chrono::duration_cast<chrono::nanoseconds>(end - start).count())/1e6;
 }
