@@ -64,7 +64,7 @@ void RadixSortTime(int* &a, int n, double& time)
 	delete[] temp;
 
 	auto stop = chrono::high_resolution_clock::now();    // Stop measure time
-	time = (chrono::duration_cast<chrono::microseconds>(stop - start).count()) / 1000.0;
+	time = double(chrono::duration_cast<chrono::nanoseconds>(stop - start).count()) / 1e6;
 }
 
 /// <summary>

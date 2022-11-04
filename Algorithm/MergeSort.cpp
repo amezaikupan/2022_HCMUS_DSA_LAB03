@@ -160,7 +160,7 @@ void MergeSortTime(int* &a, int n, double& time)
 	MergeSortRecursion_Time(a, 0, n - 1);		// Start sorting in recursion
 
 	auto stop = chrono::high_resolution_clock::now();    // Stop measure time
-	time = double(chrono::duration_cast<chrono::microseconds>(stop - start).count()) / 1e6;
+	time = double(chrono::duration_cast<chrono::nanoseconds>(stop - start).count()) / 1e6;
 }
 
 /// <summary>
