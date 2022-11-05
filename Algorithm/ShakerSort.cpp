@@ -5,32 +5,32 @@ using namespace std;
 
 void ShakerSort(int* &a, int n)
 {
-	bool swaped= true; 
+	//bool swaped= true; 
 	int left = 0;
 	int right = n - 1;
-	while (swaped)
+	while (left < right)
 	{
-		swaped = false;
+		//swaped = false;
 		for (int i = left; i < right; i++)
 		{
 			if (a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
-				swaped = true;
+				//swaped = true;
 			}
 		}
 		right--;
-		if(!swaped)
-		{
-			return;
-		}
-		swaped = false;
+		// if(!swaped)
+		// {
+		// 	return;
+		// }
+		// swaped = false;
 		for (int i = right - 1; i >= left; i--)
 		{
 			if (a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
-				swaped = true;
+				//swaped = true;
 			}
 		}
 		left++;
