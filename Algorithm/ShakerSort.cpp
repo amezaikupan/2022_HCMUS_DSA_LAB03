@@ -4,44 +4,39 @@
 using namespace std;
 
 void ShakerSort(int* &a, int n)
-{
-	//bool swaped= true; 
+{ 
 	int left = 0;
 	int right = n - 1;
+	int k ;
 	while (left < right)
 	{
-		//swaped = false;
+		// 23 24 17 16 25 26 30 28 32
 		for (int i = left; i < right; i++)
 		{
 			if (a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
-				//swaped = true;
+				k = i;
 			}
 		}
-		right--;
-		// if(!swaped)
-		// {
-		// 	return;
-		// }
-		// swaped = false;
+		right = k ;
 		for (int i = right - 1; i >= left; i--)
 		{
 			if (a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
-				//swaped = true;
+				k = i;
 			}
 		}
-		left++;
+		left = k;
 	}
 }
 
 void ShakerSortComp(int* &a, int n, long long& comp)
 {
-	bool sorted = true; 
 	int left = 0;
 	int right = n - 1;
+	int k ;
 	while ( ++comp && left < right)
 	{
 		for (int i = left; ++comp && i < right; i++)
@@ -50,20 +45,22 @@ void ShakerSortComp(int* &a, int n, long long& comp)
 			if ( ++comp && a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
+				k = i;
 
 			}
 
 		}
 
-		right--;
-		for (int i = right - 1; ++comp && i >= left; i--)
+		right = k;
+		for (int j = right - 1; ++comp && j >= left; j--)
 		{
-			if ( ++comp && a[i] > a[i + 1])
+			if ( ++comp && a[j] > a[j + 1])
 			{
-				swap(a[i], a[i + 1]);
+				swap(a[j], a[j + 1]);
+				k = j;
 			}
 		}
-		left++;
+		left = k;
 	}
 }
 void ShakerSortTime (int* &a, int n, double& time)
