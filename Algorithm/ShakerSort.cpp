@@ -2,10 +2,6 @@
 #include "..\Helper\Ultility.h"
 
 using namespace std;
-<<<<<<< HEAD
-=======
-
->>>>>>> khoi
 void ShakerSort(int* &a, int n)
 { 
 	int left = 0;
