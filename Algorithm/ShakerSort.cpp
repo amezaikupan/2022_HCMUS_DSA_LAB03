@@ -3,81 +3,11 @@
 
 using namespace std;
 
-void ShakerSort1(int* &a, int n)
-{ 
-	int left = 0;
-	int right = n - 1;
-	bool sorted = false;
-	while (!sorted)
-	{
-		sorted = true;
-		for (int i = left; i < right; i++)
-		{
-			if (a[i] > a[i + 1])
-			{
-				swap(a[i], a[i + 1]);
-				sorted = false;
-			}
-		}
-		right --;
-		if(sorted)
-		{
-			break;
-		}
-		sorted = true;
-		for (int i = right - 1; i >= left; i--)
-		{
-			if (a[i] > a[i + 1])
-			{
-				swap(a[i], a[i + 1]);
-				sorted = false;
-			}
-		}
-		left ++;
-	}
-}
-
-void ShakerSortComp1(int* &a, int n, long long& comp)
-{
-	int left = 0;
-	int right = n - 1;
-	bool sorted = false;
-	while ( ++comp && !sorted)
-	{
-		sorted = true;
-		for (int i = left; ++comp && i < right; i++)
-		{
-
-			if ( ++comp && a[i] > a[i + 1])
-			{
-				swap(a[i], a[i + 1]);
-				sorted = false;
-
-			}
-
-		}
-		right --;
-		if(++comp && sorted)
-		{
-			break;
-		}
-		sorted = true;
-		for (int j = right - 1; ++comp && j >= left; j--)
-		{
-			if ( ++comp && a[j] > a[j + 1])
-			{
-				swap(a[j], a[j + 1]);
-				sorted = false;
-			}
-		}
-		left ++;
-	}
-}
 void ShakerSort(int* &a, int n)
 { 
 	int left = 0;
 	int right = n - 1;
-	int k = n -1;
+	int k ;
 	while (left < right)
 	{
 		for (int i = left; i < right; i++)
@@ -88,16 +18,16 @@ void ShakerSort(int* &a, int n)
 				k = i;
 			}
 		}
-		right = k;
-		for (int i = right ; i > left; i--)
+		right = k ;
+		for (int i = right - 1; i >= left; i--)
 		{
-			if (a[i] < a[i - 1])
+			if (a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
 				k = i;
 			}
 		}
-		left =k ;
+		left = k;
 	}
 }
 
@@ -105,27 +35,31 @@ void ShakerSortComp(int* &a, int n, long long& comp)
 {
 	int left = 0;
 	int right = n - 1;
-	int k = 0;
-	while (++comp && left < right)
+	int k ;
+	while ( ++comp && left < right)
 	{
-		for (int i = left;++comp &&  i < right; i++)
+		for (int i = left; ++comp && i < right; i++)
 		{
-			if (++ comp && a[i] > a[i + 1])
+
+			if ( ++comp && a[i] > a[i + 1])
 			{
 				swap(a[i], a[i + 1]);
 				k = i;
+
 			}
+
 		}
+
 		right = k;
-		for (int i = right ;++comp&& i > left; i--)
+		for (int j = right - 1; ++comp && j >= left; j--)
 		{
-			if (++comp && a[i] < a[i - 1])
+			if ( ++comp && a[j] > a[j + 1])
 			{
-				swap(a[i], a[i + 1]);
-				k = i;
+				swap(a[j], a[j + 1]);
+				k = j;
 			}
 		}
-		left =k ;
+		left = k;
 	}
 }
 void ShakerSortTime (int* &a, int n, double& time)
