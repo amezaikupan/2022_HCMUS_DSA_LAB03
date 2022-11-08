@@ -29,10 +29,12 @@ void command03Comp(char* algorithm, int n){
     //Process Command
     
     printCommand03(algorithm, n);
+
     cout << endl;
     for(int i = 0; i < 4; i++)
     {
-        GenerateData(a,n,i);
+        //Generate file name
+        GenerateData(a, n, i);
         
         switch (i)
         {
@@ -52,7 +54,9 @@ void command03Comp(char* algorithm, int n){
             
             break;
         }
+
         int al = getAlgorithm(algorithm);
+
         switch (al)
         {
         case 1:
@@ -331,6 +335,7 @@ void command03Both(char* algorithm, int n){
             cout << "INVALID ALGORITHM NAME" << endl;
             return;
         }
+        
         cout << "Input order: " << getOrderName(i) << endl;
         cout << "-------------------------------------" << endl;
         cout << "Running time: " << time[i] << endl;
