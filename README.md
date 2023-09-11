@@ -6,8 +6,8 @@ This is one of my favorite programming project at school, because it combines bo
 Thank you for checking out our project.
 
 ## Achnoledgement:
-Our teacher: Mr. Văn Chí Nam, M.Sc. 
-Our lab supervisor: Ms. Phan Thị Phương Uyên, M.Sc. 
+Our teacher: Mr. Văn Chí Nam, M.Sc.   
+Our lab supervisor: Ms. Phan Thị Phương Uyên, M.Sc.   
 
 The team: 
 1. Pham Le Tu Nhi (me)
