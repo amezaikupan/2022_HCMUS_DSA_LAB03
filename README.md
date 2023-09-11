@@ -3,7 +3,7 @@ Project for Data Structure an d Algorithm Lab: Measure and compare efficiency of
 
 This is one of my favorite programming project at school, because it combines both the technical skills (programming) and analytic skills (record data and make comparisons). Everything about the code and our analysis is in our report (also one of my proud piece of work - it's over 100 pages. 
 
-Thank you for checking out our project.
+Thanks to everyone who has contributed to this project.
 
 ## Achnoledgement:
 Our teacher: Mr. Văn Chí Nam, M.Sc.   
