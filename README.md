@@ -5,7 +5,7 @@ This is one of my favorite programming project at school, because it combines bo
 
 Thanks to everyone who has contributed to this project.
 
-## Achnoledgement:
+## Acknowledgement:
 Our teacher: Mr. Văn Chí Nam, M.Sc.   
 Our lab supervisor: Ms. Phan Thị Phương Uyên, M.Sc.   
 
